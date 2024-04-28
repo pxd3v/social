@@ -44,6 +44,12 @@ module Types
       Post.where(user_id: users_id )
     end
 
-
+    field :timeline, [Types::PostType], null: false do
+      argument :user_id, ID, required: true
+    end
+    def timeline(user_id:)
+      user = User.includes(following: :posts).find(user_id)
+      user.following.flat_map(&:posts)
+    end
   end
 end
