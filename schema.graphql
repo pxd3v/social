@@ -73,6 +73,7 @@ type Post {
   content: String!
   createdAt: ISO8601DateTime!
   id: ID!
+  isAReply: Boolean
   mentions: [Mention!]
   parentPost: Post
   replies: [Post!]

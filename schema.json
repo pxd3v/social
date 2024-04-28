@@ -479,6 +479,20 @@
               ]
             },
             {
+              "name": "isAReply",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+
+              ]
+            },
+            {
               "name": "mentions",
               "description": null,
               "type": {
