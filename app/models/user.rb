@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts
+  has_many :mentions
 
   has_many :following_relationships, foreign_key: :follower_id, class_name: 'Following'
   has_many :following, through: :following_relationships, source: :followed

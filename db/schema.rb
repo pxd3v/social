@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_28_015139) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_28_171251) do
   create_table "followings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -19,6 +19,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_28_015139) do
     t.index ["followed_id"], name: "index_followings_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_followings_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_followings_on_follower_id"
+  end
+
+  create_table "mentions", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_mentions_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_mentions_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_mentions_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -40,6 +50,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_28_015139) do
 
   add_foreign_key "followings", "users", column: "followed_id"
   add_foreign_key "followings", "users", column: "follower_id"
+  add_foreign_key "mentions", "posts"
+  add_foreign_key "mentions", "users"
   add_foreign_key "posts", "posts", column: "parent_post_id"
   add_foreign_key "posts", "users"
 end

@@ -41,7 +41,7 @@ module Types
         return Post.all
       end
 
-      Post.where(user_id: users_id )
+      Post.where(user_id: users_id)
     end
 
     field :timeline, [Types::PostType], null: false do
