@@ -16,6 +16,7 @@ class User < ApplicationRecord
     end
 
     followed_by_relationships.create(follower: follower)
+    self
   end
 
   private

@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+require 'faker'
+
+5.times do
+  user = User.create(
+    username: Faker::Name.first_name,
+  )
+
+  user.posts << Post.create(
+    content: Faker::Books::Lovecraft.sentence,
+  )
+end
+
+p "created #{User.count} users and #{Post.count} posts"
