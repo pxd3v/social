@@ -6,6 +6,12 @@ class Post < ApplicationRecord
 
   after_save :create_mentions
 
+  def self.create(params)
+    params[:is_a_reply] = params[:parent_post_id].present?
+
+    super(params)
+  end
+
   private
   def create_mentions
     content.scan(/@\w+/) do |mention|

@@ -10,6 +10,6 @@ module Types
     field :user, Types::UserType, null: false
     field :mentions, [Types::MentionType], null: true
     field :replies, [Types::PostType], null: true
-
+    field :is_a_reply, Boolean, null: true
   end
 end

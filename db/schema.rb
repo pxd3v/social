@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_28_171251) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_28_192118) do
   create_table "followings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_28_171251) do
     t.datetime "updated_at", null: false
     t.integer "parent_post_id"
     t.integer "user_id", null: false
+    t.boolean "is_a_reply"
     t.index ["parent_post_id"], name: "index_posts_on_parent_post_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

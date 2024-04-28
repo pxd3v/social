@@ -52,3 +52,5 @@ end
 
 
 gem "sprockets-rails", "~> 3.4"
+
+gem "rack-cors", "~> 2.0"
